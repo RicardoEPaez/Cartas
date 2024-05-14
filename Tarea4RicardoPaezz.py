@@ -18,7 +18,14 @@ puntos_jugador = 0
 puntos_computadora = 0
 mazo_mostrado = []
 
-#Bucle de juego
+
+
+#Mostrar primera carta
+carta_mostrada = mazo_barajado.pop(0)
+mazo_mostrado.append(carta_mostrada)
+print(f'Carta actual: {carta_mostrada}')
+
+#Bucle de juego (resto de cartas)
 while mazo_barajado:
     carta_mostrada = mazo_barajado.pop(0)
     mazo_mostrado.append(carta_mostrada)
@@ -33,12 +40,15 @@ while mazo_barajado:
     else:
         if  len(mazo_mostrado) >= 2 and mazo_mostrado[-1].split(' de ')[0] == mazo_mostrado[-2].split(' de ')[0]:
             puntos_computadora += 1
-            print("!BATAllA!. Punto para la computadora")
+            print("!BATALLA!. Punto para la computadora")
+    print(f"El puntaje acumulado del jugador es: {puntos_jugador}")
+    print(f"El puntaje acumulado de la computadora es: {puntos_computadora}")
  
 #Final del juego   
 if puntos_jugador > puntos_computadora:
-    print(f'Ha ganado el jugador por {puntos_jugador} puntos')
+    print(f'Ha ganado el jugador con {puntos_jugador} puntos')
 elif puntos_jugador < puntos_computadora:
-    print(f"Ha ganado la computadora por {puntos_computadora} puntos")
+    print(f"Ha ganado la computadora con {puntos_computadora} puntos")
 else:
-    print("!Empate!")
+    print(f"Ha habido un empate con {puntos_jugador}")
+    
